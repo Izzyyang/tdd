@@ -5,27 +5,39 @@ import java.util.Map;
 /**
  * Created by Administrator on 2016/7/3.
  */
-public abstract class Product {
+public class Product {
 
-    private static Map<String, Float> discountType= new HashMap<String, Float>();
-    static{
-        discountType.put("FIVE_PERCENT_DISCOUNT", 0.95f);
-        discountType.put("TEN_PERCENT_DISCOUNT", 0.90f);
-        discountType.put("NO_DISCOUNT", 1.00f);
-    }
-    protected int productNum;
-    protected BigDecimal productPrice;
 
-    public Product(BigDecimal productPrice, int productNum) {
-        this.productPrice = productPrice;
-        this.productNum = productNum;
+    protected String name;
+    protected BigDecimal price;
+    private String barCode;
+
+    public Product(BigDecimal productPrice) {
+        this.price = productPrice;
     }
 
-    public BigDecimal getTotalFee() {
-        return productPrice.multiply(new BigDecimal(productNum));
+    public Product(String productName){
+        this.name = productName;
     }
 
-    public BigDecimal getDiscountFee(String type) {
-        return this.getTotalFee().multiply(new BigDecimal(discountType.get(type)));
+    public Product(String productName, BigDecimal productPrice){
+        this.name = productName;
+        this.price = productPrice;
+    }
+
+    public BigDecimal getPrice() {
+        return this.price;
+    }
+    public String getName(){return  this.name;}
+    public String getBarCode(){return  this.barCode;}
+
+    public String printProductInfo(int num){
+        String str = new StringBuilder("名称："+this).
+                append("，数量："+num+"个").
+                append("，单价："+this.price+"（元），").
+                append("小计："+Discount.getDiscountFee(this,num,"NO_DISCOUNT")+"（元）").
+                toString();
+        BigDecimal discountMoney = Discount.getDiscountFee(this,num,"NO_DISCOUNT").subtract(Discount.getDiscountFee(this,num,"NO_DISCOUNT"));
+        return !Discount.isDiscount(this,Discount.discountBarStr) ?  str: str+"，优惠："+discountMoney+"（元）";
     }
 }

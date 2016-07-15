@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tddTest.iml" filepath="$PROJECT_DIR$/.idea/modules/tddTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tddTest_main.iml" filepath="$PROJECT_DIR$/.idea/modules/tddTest_main.iml" group="tddTest" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tddTest_test.iml" filepath="$PROJECT_DIR$/.idea/modules/tddTest_test.iml" group="tddTest" />
+    </modules>
+  </component>
+</project>

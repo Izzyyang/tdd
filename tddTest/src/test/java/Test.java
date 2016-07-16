@@ -21,13 +21,11 @@ public class Test {
     private final String  NO_DISCOUNT = "NO_DISCOUNT";
     @org.junit.Test
     public void should_return_totallfee_cocola() throws Exception {
-        Product cocola = new Product("COCOLA",COCOLA_PRICE);
-        assertTrue(Discount.getDiscountFee(cocola,COCOLA_NUM,NO_DISCOUNT).equals(new BigDecimal(9)));
+        assertTrue(Discount.getDiscountFee(Product.Coocla,COCOLA_NUM,NO_DISCOUNT).equals(new BigDecimal(9)));
     }
     @org.junit.Test
     public void should_return_discountfee_cocola() throws Exception {
-        Product cocola = new Product("cocola",COCOLA_PRICE);
-        BigDecimal b = Discount.getDiscountFee(cocola,COCOLA_NUM,FIVE_PERCENT_DISCOUNT);
+        BigDecimal b = Discount.getDiscountFee(Product.Coocla,COCOLA_NUM,FIVE_PERCENT_DISCOUNT);
         double f =  b.setScale(2,   BigDecimal.ROUND_HALF_UP).doubleValue();
         assertTrue(new BigDecimal(f).compareTo(new BigDecimal(8.55)) == 0);
     }
@@ -35,28 +33,24 @@ public class Test {
     //羽毛球
     @org.junit.Test
     public void should_return_totallfee_badminton() throws Exception {
-        Product badminton = new Product("badminton",BADMINTON_PRICE);
-        assertTrue(Discount.getDiscountFee(badminton,BADMINTON_NUM,NO_DISCOUNT).equals(new BigDecimal(5)));
+        assertTrue(Discount.getDiscountFee(Product.Badminton,BADMINTON_NUM,NO_DISCOUNT).equals(new BigDecimal(5)));
     }
     @org.junit.Test
     public void should_return_discountfee_badminton() throws Exception {
-        Product badminton = new Product("badminton",BADMINTON_PRICE);
-        BigDecimal b = Discount.getDiscountFee(badminton,BADMINTON_NUM,NO_DISCOUNT);
+        BigDecimal b = Discount.getDiscountFee(Product.Badminton,BADMINTON_NUM,NO_DISCOUNT);
         double f =  b.setScale(2,   BigDecimal.ROUND_HALF_UP).doubleValue();
         assertTrue(new BigDecimal(f).compareTo(new BigDecimal(5)) == 0);
     }
     //苹果
     @org.junit.Test
     public void should_return_totallfee_apple() throws Exception {
-        Product apple = new Product("apple",APPLE_PRICE);
-        BigDecimal b = Discount.getDiscountFee(apple,APPLE_NUM,NO_DISCOUNT);
+        BigDecimal b = Discount.getDiscountFee(Product.Apple,APPLE_NUM,NO_DISCOUNT);
         double f =  b.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
         assertTrue(new BigDecimal(f).compareTo(new BigDecimal(11)) == 0);
     }
     @org.junit.Test
     public void should_return_discountfee_apple() throws Exception {
-        Product apple = new Product("apple",APPLE_PRICE);
-        BigDecimal b = Discount.getDiscountFee(apple,APPLE_NUM,NO_DISCOUNT);
+        BigDecimal b = Discount.getDiscountFee(Product.Apple,APPLE_NUM,NO_DISCOUNT);
         double f =  b.setScale(2,   BigDecimal.ROUND_HALF_UP).doubleValue();
         assertTrue(new BigDecimal(f).compareTo(new BigDecimal(11)) == 0);
     }

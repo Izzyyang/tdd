@@ -1,3 +1,2 @@
-language: JAVA #语言种类
-
 sudo: required
+language: JAVA #语言种类
